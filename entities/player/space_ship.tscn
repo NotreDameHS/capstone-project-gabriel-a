@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dq7wdpsil2vnh"]
+
+[ext_resource type="Texture2D" uid="uid://cmmwgd1fe3mnm" path="res://assets/textures/Ships/spaceShips_008.png" id="1_4mv8m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2hhm"]
+radius = 61.03278
+
+[node name="spaceShip" type="Node2D" unique_id=1365035703]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=874936301]
+texture = ExtResource("1_4mv8m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=735755594]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=632059699]
+shape = SubResource("CircleShape2D_d2hhm")
