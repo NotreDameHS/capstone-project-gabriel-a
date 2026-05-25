@@ -1,10 +1,17 @@
 class_name  player extends Node2D
+@onready var projectileSpawn = $Marker2D
+@onready var timer = $Timer
+@export var attackrate = 1
+@export var projectilePerShot = 1
+@export var homing = false
+@export var damage = 50
 var speed := 1200.0
 var velocity = Vector2(0, 0)
 var steering_factor := 10.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	timer.start(attackrate)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,3 +27,8 @@ func _process(delta: float) -> void:
 	var steering_vector = desired_velocity - velocity
 	velocity += steering_vector * steering_factor * delta
 	position += velocity * delta
+
+
+
+func _on_timer_timeout() -> void:
+	print("bullet shot!")
