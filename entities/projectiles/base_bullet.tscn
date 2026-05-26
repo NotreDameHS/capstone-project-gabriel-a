@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cm1tmjf7xskei"]
+
+[ext_resource type="Texture2D" uid="uid://cghy43hbfls1c" path="res://assets/textures/projectiles/spaceMissiles_018.png" id="1_o3ma4"]
+[ext_resource type="Script" uid="uid://ck44bnrmrbeid" path="res://entities/projectiles/base_bullet.gd" id="1_xqnpd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqnpd"]
+radius = 20.22375
+
+[node name="BaseBullet" type="Node2D" unique_id=85450462]
+script = ExtResource("1_xqnpd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=741667039]
+texture = ExtResource("1_o3ma4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=193166092]
+scale = Vector2(0.67999816, 1)
+shape = SubResource("CircleShape2D_xqnpd")

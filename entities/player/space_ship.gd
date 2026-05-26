@@ -1,17 +1,18 @@
 class_name  player extends Node2D
-@onready var projectileSpawn = $Marker2D
+@onready var bulletSpawn = $Marker2D
 @onready var timer = $Timer
-@export var attackrate = 1
+@export var attackrate = 100
 @export var projectilePerShot = 1
 @export var homing = false
 @export var damage = 50
+@export var bulletScene: PackedScene
 var speed := 1200.0
 var velocity = Vector2(0, 0)
 var steering_factor := 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start(attackrate)
+	timer.start(attackrate/100.0) #this lets me edit the attackrate easier
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,4 +32,8 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("bullet shot!")
+	var bullet = bulletScene.instantiate()
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = bulletSpawn.global_position #this sets the location
+	bullet.global_rotation = bulletSpawn.global_rotation #this sets the rotation.
+	bullet.direction = Vector2.UP.rotated(bulletSpawn.global_rotation) #this sets the direction the bullet should move to (lets me edit this later on)

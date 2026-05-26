@@ -2,12 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://cmmwgd1fe3mnm" path="res://assets/textures/Ships/spaceShips_008.png" id="1_4mv8m"]
 [ext_resource type="Script" uid="uid://j5lk460da12u" path="res://entities/player/space_ship.gd" id="1_d2hhm"]
+[ext_resource type="PackedScene" uid="uid://cm1tmjf7xskei" path="res://entities/projectiles/base_bullet.tscn" id="2_1mo6j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2hhm"]
 radius = 61.03278
 
 [node name="baseShip" type="Node2D" unique_id=1365035703]
 script = ExtResource("1_d2hhm")
+bulletScene = ExtResource("2_1mo6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=874936301]
 rotation = 3.1415927
