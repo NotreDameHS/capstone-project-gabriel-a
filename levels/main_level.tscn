@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://das5gkjpdhvd4"]
+
+[ext_resource type="Texture2D" uid="uid://j6nd831np2ff" path="res://assets/textures/Background/space.png" id="1_ilwad"]
+[ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/space_ship.tscn" id="2_0vhbo"]
+
+[node name="MainLevel" type="Node2D" unique_id=1851324789]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1989731917]
+texture_repeat = 2
+texture = ExtResource("1_ilwad")
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 10000)
+
+[node name="baseShip" parent="." unique_id=1365035703 instance=ExtResource("2_0vhbo")]
+position = Vector2(395, 299)

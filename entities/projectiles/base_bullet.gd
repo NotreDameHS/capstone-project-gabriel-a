@@ -2,21 +2,20 @@ extends Node2D
 @export var damage := 25 
 @export var max_distance := 900.0 #This will be changed after the level scene is made
 @export var speed := 300.0
+var velocity: Vector2 = Vector2(0, 0)
 var _distance_traveled := 0.0
-var direction: Vector2 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#set_as_top_level(true)
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	global_position += direction * speed * delta 
-	_distance_traveled += speed * delta
+	velocity = transform.x * speed
+	position += velocity * delta 
 	if _distance_traveled  > max_distance:
 		_explode()
 

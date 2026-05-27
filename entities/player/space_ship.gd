@@ -36,4 +36,3 @@ func _on_timer_timeout() -> void:
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = bulletSpawn.global_position #this sets the location
 	bullet.global_rotation = bulletSpawn.global_rotation #this sets the rotation.
-	bullet.direction = Vector2.UP.rotated(bulletSpawn.global_rotation) #this sets the direction the bullet should move to (lets me edit this later on)

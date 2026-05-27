@@ -12,7 +12,7 @@ script = ExtResource("1_d2hhm")
 bulletScene = ExtResource("2_1mo6j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=874936301]
-rotation = 3.1415927
+rotation = -1.5707964
 texture = ExtResource("1_4mv8m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632059699]
@@ -21,6 +21,6 @@ shape = SubResource("CircleShape2D_d2hhm")
 [node name="Timer" type="Timer" parent="." unique_id=157470094]
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1195887332]
-position = Vector2(0, -49)
+position = Vector2(50, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
