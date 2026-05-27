@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ck6dry15ad7gx"]
 
 [ext_resource type="Script" uid="uid://bnph5ese0ue1s" path="res://base_mob.gd" id="1_yijqc"]
+[ext_resource type="Texture2D" uid="uid://bpbfcn2xj1cwa" path="res://assets/textures/Ships/customSpaceship1.png" id="2_2e703"]
 
 [node name="BaseMob" type="Node2D" unique_id=923788401]
 script = ExtResource("1_yijqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1580178594]
+texture = ExtResource("2_2e703")

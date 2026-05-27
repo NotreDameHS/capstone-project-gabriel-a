@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cm2q0undlq6g2"]
 
-[ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/space_ship.tscn" id="1_jdpn8"]
+[ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="1_jdpn8"]
 
 [node name="TestScene" type="Node2D" unique_id=1701878472]
 

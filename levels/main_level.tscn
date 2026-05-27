@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://das5gkjpdhvd4"]
 
 [ext_resource type="Texture2D" uid="uid://j6nd831np2ff" path="res://assets/textures/Background/space.png" id="1_ilwad"]
-[ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/space_ship.tscn" id="2_0vhbo"]
+[ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="2_0vhbo"]
 
 [node name="MainLevel" type="Node2D" unique_id=1851324789]
 
