@@ -81,8 +81,7 @@ func _on_timer_timeout() -> void:
 	bullet.global_rotation = bulletSpawn.global_rotation #this sets the rotation.
 
 func _take_Damage(damageTaken) -> void:
-	print("Player's Ship health at: ",playerHealth)
-	playerHealth =- damageTaken
+	playerHealth -= damageTaken
 	print("Player's Ship took ",damageTaken," damage!")
 	print("Player's Ship new health at: ",playerHealth)
 	if playerHealth <= 0:
