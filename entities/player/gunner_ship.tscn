@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dleh4wfgninwk"]
+
+[ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="1_gbr4m"]
+[ext_resource type="Script" uid="uid://bv28dqpexa6wm" path="res://entities/player/gunner_ship.gd" id="2_jufrs"]
+
+[node name="GunnerShip" unique_id=565109231 instance=ExtResource("1_gbr4m")]
+script = ExtResource("2_jufrs")

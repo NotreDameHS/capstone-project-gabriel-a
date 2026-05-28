@@ -1,4 +1,4 @@
-class_name  player extends Node2D
+class_name  player extends Area2D
 @onready var bulletSpawn = $Marker2D
 @onready var timer = $Timer
 @export var attackrate = 100
@@ -36,3 +36,7 @@ func _on_timer_timeout() -> void:
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = bulletSpawn.global_position #this sets the location
 	bullet.global_rotation = bulletSpawn.global_rotation #this sets the rotation.
+
+
+func _on_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

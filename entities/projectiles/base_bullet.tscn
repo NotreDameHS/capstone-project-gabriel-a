@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqnpd"]
 radius = 26.470661
 
-[node name="BaseBullet" type="Node2D" unique_id=85450462]
+[node name="BaseBullet" type="Area2D" unique_id=813582151]
 script = ExtResource("1_xqnpd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=741667039]

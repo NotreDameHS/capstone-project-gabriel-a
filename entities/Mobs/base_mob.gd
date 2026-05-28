@@ -1,11 +1,13 @@
-extends Area2D
-@export var max_distance := 900.0 #This will be changed after the level scene is made
-@export var speed := 300.0
+class_name Mob extends Area2D
+@onready var bulletSpawn = $Marker2D
+@export var health = 100
+@export var speed = 300
+@export var damage = 50
 var velocity: Vector2 = Vector2(0, 0)
-var _distance_traveled := 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -13,10 +15,8 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity = transform.x * speed
-	position += velocity * delta 
-	_distance_traveled += speed * delta
-	if _distance_traveled  > max_distance:
-		_explode()
+	position -= velocity * delta 
+
 
 func _explode() -> void:
 	spawn_poof(global_position)
@@ -50,11 +50,16 @@ func spawn_poof(projectile_position: Vector2): #Copied from Tower_Defence
 	particles.scale_amount_curve = curve
 	# Design the colours of the cloud
 	var gradient = Gradient.new()
-	gradient.add_point(0.0, Color(1, 1, 1, 1)) 
-	gradient.add_point(1.0, Color(1, 1, 1, 0)) 
+	gradient.add_point(0.0, Color(1.0, 0.367, 0.0, 1.0)) #I wanted different colors
+	gradient.add_point(1.0, Color(1.0, 0.0, 0.0, 0.729)) 
 	particles.color_ramp = gradient 
 	# Turn on the particle cloud
 	particles.emitting = true
 	# Tell the particles to delete themselves after their lifetime.
 	var timer = get_tree().create_timer(particles.lifetime + 0.5)
 	timer.timeout.connect(particles.queue_free) 
+
+
+#func _on_area_entered(area: Area2D) -> void:     #To be Worked on!
+#	if area.is_in_group(playerBullet):
+#		pass
