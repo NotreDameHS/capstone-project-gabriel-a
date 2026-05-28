@@ -1,12 +1,16 @@
 class_name Mob extends Area2D
 @onready var bulletSpawn = $Marker2D
+@onready var attacktimer = $Timer
 @export var health = 100
 @export var speed = 300
-@export var damage = 50
+@export var damage = 15
+@export var attackrate = 100
+@export var canShoot = true
+@export var bulletScene: PackedScene
 var velocity: Vector2 = Vector2(0, 0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	attacktimer.start(attackrate/100.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,7 +63,25 @@ func spawn_poof(projectile_position: Vector2): #Copied from Tower_Defence
 	var timer = get_tree().create_timer(particles.lifetime + 0.5)
 	timer.timeout.connect(particles.queue_free) 
 
+func _on_timer_timeout() -> void:
+	var bullet = bulletScene.instantiate()
+	bullet.damage = damage
+	bullet.direction = -1
+	bullet.groupToAttack = "Player"
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = bulletSpawn.global_position #this sets the location
+	bullet.global_rotation = bulletSpawn.global_rotation #this sets the rotation.
 
-#func _on_area_entered(area: Area2D) -> void:     #To be Worked on!
-#	if area.is_in_group(playerBullet):
-#		pass
+func _take_Damage(damageTaken) -> void:
+	print("Enemy health at: ",health)
+	health -= damageTaken
+	print("Enemy Ship took ",damageTaken," damage!")
+	print("Enemy New health at: ",health)
+	if health <= 0:
+		print("Enemy Ship defeated!")
+		_explode()
+	else:
+		pass
+
+func _on_area_entered(_area: Area2D) -> void:     #might remove this.
+	pass

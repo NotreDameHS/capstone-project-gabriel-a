@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bnph5ese0ue1s" path="res://entities/Mobs/base_mob.gd" id="1_yijqc"]
 [ext_resource type="Texture2D" uid="uid://bpbfcn2xj1cwa" path="res://assets/textures/Ships/customSpaceship1.png" id="2_2e703"]
+[ext_resource type="PackedScene" uid="uid://cm1tmjf7xskei" path="res://entities/projectiles/base_bullet.tscn" id="2_eu2pi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2e703"]
 
 [node name="BaseMob" type="Area2D" unique_id=276619329]
+monitoring = false
 script = ExtResource("1_yijqc")
+bulletScene = ExtResource("2_eu2pi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1580178594]
 rotation = 1.5707964
@@ -22,3 +25,4 @@ position = Vector2(-57, 0)
 [node name="Timer" type="Timer" parent="." unique_id=657745671]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,7 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2hhm"]
 radius = 61.03278
 
-[node name="BaseShip" type="Area2D" unique_id=565109231]
+[node name="BaseShip" type="Area2D" unique_id=565109231 groups=["Player"]]
+monitoring = false
 script = ExtResource("1_d2hhm")
 bulletScene = ExtResource("2_1mo6j")
 
