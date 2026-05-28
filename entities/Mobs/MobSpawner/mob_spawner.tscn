@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dxqmhubaedyaw"]
+
+[ext_resource type="Script" uid="uid://c61v2tlgvxf6" path="res://entities/Mobs/MobSpawner/mob_spawner.gd" id="1_rw4gy"]
+
+[node name="MobSpawner" type="Node2D" unique_id=448653083]
+script = ExtResource("1_rw4gy")
+mob_types = Array[PackedScene]([null])
+
+[node name="Timer" type="Timer" parent="." unique_id=1594650527]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

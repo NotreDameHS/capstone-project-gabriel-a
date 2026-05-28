@@ -81,6 +81,10 @@ func _on_timer_timeout() -> void:
 	bullet.global_rotation = bulletSpawn.global_rotation #this sets the rotation.
 
 func _take_Damage(damageTaken) -> void:
+	var damage_indicator: Node2D = preload("res://ui/damage_popup.tscn").instantiate()
+	get_tree().current_scene.add_child(damage_indicator)
+	damage_indicator.global_position = global_position
+	damage_indicator.display_damage(damageTaken)
 	playerHealth -= damageTaken
 	print("Player's Ship took ",damageTaken," damage!")
 	print("Player's Ship new health at: ",playerHealth)

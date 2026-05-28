@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="1_jdpn8"]
 [ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="2_5krfb"]
+[ext_resource type="PackedScene" uid="uid://dxqmhubaedyaw" path="res://entities/Mobs/MobSpawner/mob_spawner.tscn" id="3_0wynk"]
 
 [node name="TestScene" type="Node2D" unique_id=1701878472]
 
@@ -10,3 +11,5 @@ position = Vector2(344, 303)
 
 [node name="BaseMob" parent="." unique_id=923788401 instance=ExtResource("2_5krfb")]
 position = Vector2(1703, 389)
+
+[node name="MobSpawner" parent="." unique_id=448653083 instance=ExtResource("3_0wynk")]

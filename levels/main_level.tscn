@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://j6nd831np2ff" path="res://assets/textures/Background/space.png" id="1_ilwad"]
 [ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="2_0vhbo"]
+[ext_resource type="PackedScene" uid="uid://bu2eumbttva4k" path="res://ui/player_ui.tscn" id="3_ldao0"]
 
 [node name="MainLevel" type="Node2D" unique_id=1851324789]
 
@@ -22,3 +23,5 @@ region_rect = Rect2(0, 0, 10000, 10000)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1144540161]
 anchor_mode = 0
 zoom = Vector2(0.7, 0.7)
+
+[node name="Player UI" parent="." unique_id=526041067 instance=ExtResource("3_ldao0")]
