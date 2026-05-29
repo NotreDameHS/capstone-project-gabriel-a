@@ -36,4 +36,4 @@ normal,3;gunner,5;fast,4
 # Wave 7: one Boss enemyship
 boss,1
 
-_________________________________END_OF_WAVE_INSTRUCTIONS____________________________________
+#_________________________________END_OF_WAVE_INSTRUCTIONS___________________________________
