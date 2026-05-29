@@ -1,17 +1,28 @@
 extends CanvasLayer
  #This will be edited to fit my game!
+#Margins
+@onready var topMargin: MarginContainer = $TopMargin
+@onready var middleMargin: MarginContainer = $MiddleMargin
+@onready var bottomMargin: MarginContainer = $BottomMargin
 # References to Labels
-@onready var money_label: Label = $MarginContainer/HBoxContainer/MoneyLabel/MoneyLabel
-@onready var health_label: Label = $MarginContainer/HBoxContainer/HealthPanel/HealthPanel
-
+@onready var money_label: Label = $TopMargin/HBoxContainer/MoneyLabel/MoneyLabel
+@onready var health_label: Label = $TopMargin/HBoxContainer/HealthPanel/HealthPanel
+#Starting Menu
+@onready var startingOptions_panel: MarginContainer = $MiddleMargin
+@onready var gunnerShip_btn: Button = $MiddleMargin/StartingDialog_container/ShipOptions_container/BomberShip_btn
+@onready var bomberShip_btn: Button = $MiddleMargin/StartingDialog_container/ShipOptions_container/BomberShip_btn
+@onready var rocketShip_btn: Button = $MiddleMargin/StartingDialog_container/ShipOptions_container/RocketShip_btn
 # Buttons & Price Labels
-@onready var shopPanel: HBoxContainer = $MarginContainer/HBoxContainer/ShopPanel
-@onready var Damage_upgrade_btn: Button = $MarginContainer/HBoxContainer/ShopPanel/DamageUpgrade/DamageUpgradeBtn
-@onready var Damage_upgrade_price_label: Label = $MarginContainer/HBoxContainer/ShopPanel/DamageUpgrade/DamageUpgradePrice
-@onready var FiringRate_upgrade_btn: Button = $MarginContainer/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradeBtn
-@onready var FiringRate_upgrade_price_label: Label = $MarginContainer/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradePrice
-@onready var ProjectilesUpgrade_btn: Button = $MarginContainer/HBoxContainer/ShopPanel/ProjectilesUpgrade/ProjectilesUpgradeBtn
-@onready var ProjectilesUpgrade_price_label: Label = $MarginContainer/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradePrice
+@onready var healthPackPanel: VBoxContainer = $TopMargin/HBoxContainer/HealthPanel/HealthPackPanel
+@onready var health_Pack_btn: Button = $TopMargin/HBoxContainer/HealthPanel/HealthPackPanel/HealthPackBtn
+@onready var health_Pack_price_label: Label = $TopMargin/HBoxContainer/HealthPanel/HealthPackPanel/HealthPackPriceLabel
+@onready var shopPanel: HBoxContainer = $TopMargin/HBoxContainer/ShopPanel
+@onready var Damage_upgrade_btn: Button = $TopMargin/HBoxContainer/ShopPanel/DamageUpgrade/DamageUpgradeBtn
+@onready var Damage_upgrade_price_label: Label = $TopMargin/HBoxContainer/ShopPanel/DamageUpgrade/DamageUpgradePrice
+@onready var FiringRate_upgrade_btn: Button = $TopMargin/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradeBtn
+@onready var FiringRate_upgrade_price_label: Label = $TopMargin/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradePrice
+@onready var ProjectilesUpgrade_btn: Button = $TopMargin/HBoxContainer/ShopPanel/ProjectilesUpgrade/ProjectilesUpgradeBtn
+@onready var ProjectilesUpgrade_price_label: Label = $TopMargin/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradePrice
 @onready var pause_btn: Button = $BottomMargin/HBoxContainer/PauseBtn
 @onready var upgrade_btn: Button = $BottomMargin/HBoxContainer/UpgradeBtn
 # Turret scenes to pass on click
@@ -21,7 +32,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void: #code commented out for obvious reasons!
-	shopPanel.hide() # I wish for shop to be hidden during gameplay!
+	#startingOptions_panel.hide() #Will be disabled for now
 	# Set the turret prices as stated in the GameManager
 	#turret_1_price_label.text = "$" + str(GameManager.turret_1_price)
 	#turret_2_price_label.text = "$" + str(GameManager.turret_2_price)
@@ -64,7 +75,11 @@ func _on_upgrade_pressed() -> void: #More will be added here
 	# Update button text
 	if get_tree().paused:
 		upgrade_btn.text = "Resume to Game"
+		shopPanel.show()
+		healthPackPanel.show()
 	else:
+		shopPanel.hide()
+		healthPackPanel.hide()
 		upgrade_btn.text = "Exit to Upgrades"
 
 func _on_pause_pressed() -> void:
@@ -77,3 +92,9 @@ func _on_pause_pressed() -> void:
 		pause_btn.text = "Resume"
 	else:
 		pause_btn.text = "Pause"
+
+func _starting_game() -> void:
+	topMargin.hide()
+	bottomMargin.hide()
+	
+	
