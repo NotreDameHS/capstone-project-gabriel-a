@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dxqmhubaedyaw"]
 
 [ext_resource type="Script" uid="uid://c61v2tlgvxf6" path="res://entities/Mobs/MobSpawner/mob_spawner.gd" id="1_rw4gy"]
+[ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="2_ohe14"]
 
 [node name="MobSpawner" type="Node2D" unique_id=448653083]
 script = ExtResource("1_rw4gy")
-mob_types = Array[PackedScene]([null])
+mob_types = Array[PackedScene]([ExtResource("2_ohe14")])
 
 [node name="Timer" type="Timer" parent="." unique_id=1594650527]
 

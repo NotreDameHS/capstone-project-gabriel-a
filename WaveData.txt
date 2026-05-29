@@ -1,0 +1,39 @@
+#This is Mob wave planner so I can easily edit how they spawn!
+#Format: 
+#	Lines that start with ("#") get ignored!
+#	("@ maximum waves = ",int) The integer dictates amount of waves. you need to have the starting sentence or else the code wont format it properly!
+#	(";") This separates the type of enemy in each wave
+#	(",") This separates the enemy type from the enemy amount!
+
+#	enemy syntax:  #Its easy to check which word equals what enemy is spawned.
+#		normal = basic mob
+#		fast = fast mob
+#		gunner = gunner mob
+#		boss = boss mob
+
+# ______________________________WAVE_INSTRUCTIONS_BELOW______________________________________
+
+@ maximum waves = 7
+
+# Wave 1: 5 Normal enemyships
+normal,5
+
+# Wave 2: 7 normal enemyShips
+normal,7
+
+# Wave 3: 5 Normal enemyships and 3 fast enemyShips
+normal,5;fast,3
+
+# Wave 4: 3 normal enemyships and 6 fast enemyships and 2 gunner enemyships
+normal,3;fast,6;gunner,2
+
+# Wave 5: 2 normal enemyships and 4 gunner enemyships and 3 fast enemyships
+normal,2;gunner,4;fast,3
+
+# Wave 6: 3 normal enemyships and 5 gunner enemyships and 4 fast enemyships
+normal,3;gunner,5;fast,4
+
+# Wave 7: one Boss enemyship
+boss,1
+
+_________________________________END_OF_WAVE_INSTRUCTIONS____________________________________
