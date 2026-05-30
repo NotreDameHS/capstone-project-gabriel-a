@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bu2eumbttva4k"]
+[gd_scene format=3 uid="uid://0ljekhjl5kus"]
 
-[ext_resource type="LabelSettings" uid="uid://di68y20xyuu3l" path="res://ui/ui_label_settings.tres" id="1_lwipk"]
-[ext_resource type="Script" uid="uid://djgxf5gx2jrgo" path="res://ui/player_ui.gd" id="1_tybkg"]
-[ext_resource type="StyleBox" uid="uid://bqgolxkhhvb2w" path="res://ui/ui_button_settings.tres" id="2_pc08v"]
-[ext_resource type="Texture2D" uid="uid://dy7avx30ebkap" path="res://assets/textures/Ships/spaceShips_001.png" id="4_iwa1g"]
+[ext_resource type="Script" uid="uid://djgxf5gx2jrgo" path="res://ui/player_ui.gd" id="1_lnyeu"]
+[ext_resource type="LabelSettings" uid="uid://di68y20xyuu3l" path="res://ui/ui_label_settings.tres" id="2_4yfqe"]
+[ext_resource type="StyleBox" uid="uid://bqgolxkhhvb2w" path="res://ui/ui_button_settings.tres" id="3_17d88"]
+[ext_resource type="Texture2D" uid="uid://dy7avx30ebkap" path="res://assets/textures/Ships/spaceShips_001.png" id="4_h05m3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u08w4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -29,7 +29,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykvpg"]
+[sub_resource type="LabelSettings" id="LabelSettings_lnyeu"]
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yfqe"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -38,7 +41,7 @@ corner_radius_bottom_left = 25
 
 [node name="Player UI" type="CanvasLayer" unique_id=526041067]
 process_mode = 3
-script = ExtResource("1_tybkg")
+script = ExtResource("1_lnyeu")
 
 [node name="TopMargin" type="MarginContainer" parent="." unique_id=1628646595]
 anchors_preset = 10
@@ -62,7 +65,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "MONEY"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 
 [node name="SpacerLeft" type="Control" parent="TopMargin/HBoxContainer" unique_id=1587429988]
 layout_mode = 2
@@ -71,18 +74,32 @@ size_flags_horizontal = 3
 [node name="ShopPanel" type="HBoxContainer" parent="TopMargin/HBoxContainer" unique_id=1210395308]
 layout_mode = 2
 
+[node name="HealthPackPanel" type="VBoxContainer" parent="TopMargin/HBoxContainer/ShopPanel" unique_id=1745152472]
+layout_mode = 2
+
+[node name="HealthPackBtn" type="Button" parent="TopMargin/HBoxContainer/ShopPanel/HealthPackPanel" unique_id=1361565222]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lp0io")
+
+[node name="HealthPackPriceLabel" type="Label" parent="TopMargin/HBoxContainer/ShopPanel/HealthPackPanel" unique_id=1628094638]
+layout_mode = 2
+text = "$50"
+label_settings = ExtResource("2_4yfqe")
+horizontal_alignment = 1
+
 [node name="FiringRateUpgrade" type="VBoxContainer" parent="TopMargin/HBoxContainer/ShopPanel" unique_id=1495892315]
 layout_mode = 2
 
 [node name="FiringRateUpgradeBtn" type="Button" parent="TopMargin/HBoxContainer/ShopPanel/FiringRateUpgrade" unique_id=481749100]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("2_pc08v")
+theme_override_styles/normal = ExtResource("3_17d88")
 
 [node name="FiringRateUpgradePrice" type="Label" parent="TopMargin/HBoxContainer/ShopPanel/FiringRateUpgrade" unique_id=1573084405]
 layout_mode = 2
 text = "$100"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 horizontal_alignment = 1
 
 [node name="DamageUpgrade" type="VBoxContainer" parent="TopMargin/HBoxContainer/ShopPanel" unique_id=201797002]
@@ -91,12 +108,12 @@ layout_mode = 2
 [node name="DamageUpgradeBtn" type="Button" parent="TopMargin/HBoxContainer/ShopPanel/DamageUpgrade" unique_id=1916723305]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("2_pc08v")
+theme_override_styles/normal = ExtResource("3_17d88")
 
 [node name="DamageUpgradePrice" type="Label" parent="TopMargin/HBoxContainer/ShopPanel/DamageUpgrade" unique_id=237814652]
 layout_mode = 2
 text = "$100"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 horizontal_alignment = 1
 
 [node name="ProjectilesUpgrade" type="VBoxContainer" parent="TopMargin/HBoxContainer/ShopPanel" unique_id=1286075430]
@@ -105,12 +122,12 @@ layout_mode = 2
 [node name="ProjectilesUpgradeBtn" type="Button" parent="TopMargin/HBoxContainer/ShopPanel/ProjectilesUpgrade" unique_id=200829307]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("2_pc08v")
+theme_override_styles/normal = ExtResource("3_17d88")
 
 [node name="ProjectilesUpgradePrice" type="Label" parent="TopMargin/HBoxContainer/ShopPanel/ProjectilesUpgrade" unique_id=1024504141]
 layout_mode = 2
 text = "$100"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -123,24 +140,6 @@ custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u08w4")
 
-[node name="HealthPackPanel" type="VBoxContainer" parent="TopMargin/HBoxContainer/HealthPanel" unique_id=1745152472]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 110.0
-offset_right = 125.0
-offset_bottom = 269.0
-
-[node name="HealthPackBtn" type="Button" parent="TopMargin/HBoxContainer/HealthPanel/HealthPackPanel" unique_id=1361565222]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_lp0io")
-
-[node name="HealthPackPriceLabel" type="Label" parent="TopMargin/HBoxContainer/HealthPanel/HealthPackPanel" unique_id=1628094638]
-layout_mode = 2
-text = "$50"
-label_settings = ExtResource("1_lwipk")
-horizontal_alignment = 1
-
 [node name="HealthPanel" type="Label" parent="TopMargin/HBoxContainer/HealthPanel" unique_id=457587695]
 layout_mode = 1
 anchors_preset = 1
@@ -152,7 +151,7 @@ offset_right = 1.0
 offset_bottom = 45.0
 grow_horizontal = 0
 text = "HEALTH"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 
 [node name="ProgressBar" type="ProgressBar" parent="TopMargin/HBoxContainer/HealthPanel" unique_id=1074396477]
 layout_mode = 0
@@ -165,83 +164,119 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_iwa1g")
 value = 50.0
 show_percentage = false
 
-[node name="MiddleMargin" type="MarginContainer" parent="." unique_id=1443538742]
-offset_left = 625.0
-offset_top = 256.0
-offset_right = 1298.0
-offset_bottom = 746.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
+[node name="MiddleTopMargin" type="MarginContainer" parent="." unique_id=872715547]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -247.0
+offset_right = -9.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="StartingText_container" type="HBoxContainer" parent="MiddleMargin" unique_id=1204736916]
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopMargin" unique_id=777493543]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
 
-[node name="StartingText_label" type="Label" parent="MiddleMargin/StartingText_container" unique_id=902069026]
+[node name="LeftSpacer" type="Control" parent="MiddleTopMargin/HBoxContainer" unique_id=1961027862]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MiddleTopMargin/HBoxContainer" unique_id=86081700]
 layout_mode = 2
 text = "Choose Your Ship!"
-label_settings = ExtResource("1_lwipk")
+label_settings = SubResource("LabelSettings_lnyeu")
 
-[node name="StartingDialog_container" type="HBoxContainer" parent="MiddleMargin" unique_id=1335680579]
+[node name="RightSpacer" type="Control" parent="MiddleTopMargin/HBoxContainer" unique_id=702275203]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MiddleBottomMargin" type="MarginContainer" parent="." unique_id=1779003071]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -135.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleBottomMargin" unique_id=901632998]
 layout_mode = 2
 
-[node name="ShipOptions_container" type="VBoxContainer" parent="MiddleMargin/StartingDialog_container" unique_id=398347966]
-custom_minimum_size = Vector2(400, 400)
+[node name="LeftSpacer" type="Control" parent="MiddleBottomMargin/HBoxContainer" unique_id=495031513]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShipOptions_container" type="VBoxContainer" parent="MiddleBottomMargin/HBoxContainer" unique_id=1450185373]
+custom_minimum_size = Vector2(700, 400)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="GunnerShip_btn" type="Button" parent="MiddleMargin/StartingDialog_container/ShipOptions_container" unique_id=75465819]
+[node name="GunnerShip_btn" type="Button" parent="MiddleBottomMargin/HBoxContainer/ShipOptions_container" unique_id=1234665571]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_ykvpg")
-icon = ExtResource("4_iwa1g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4yfqe")
+icon = ExtResource("4_h05m3")
 
-[node name="DescriptionLabel" type="Label" parent="MiddleMargin/StartingDialog_container/ShipOptions_container/GunnerShip_btn" unique_id=1865588500]
+[node name="DescriptionLabel" type="Label" parent="MiddleBottomMargin/HBoxContainer/ShipOptions_container/GunnerShip_btn" unique_id=1149817960]
 layout_mode = 0
 offset_left = 121.0
 offset_top = 4.0
 offset_right = 672.0
 offset_bottom = 128.0
 text = "Gunner ship  - Max upgrades  limit increaded!"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 autowrap_mode = 3
 
-[node name="BomberShip_btn" type="Button" parent="MiddleMargin/StartingDialog_container/ShipOptions_container" unique_id=1530007632]
+[node name="BomberShip_btn" type="Button" parent="MiddleBottomMargin/HBoxContainer/ShipOptions_container" unique_id=171963714]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_ykvpg")
-icon = ExtResource("4_iwa1g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4yfqe")
+icon = ExtResource("4_h05m3")
 
-[node name="DescriptionLabel" type="Label" parent="MiddleMargin/StartingDialog_container/ShipOptions_container/BomberShip_btn" unique_id=1126227076]
+[node name="DescriptionLabel" type="Label" parent="MiddleBottomMargin/HBoxContainer/ShipOptions_container/BomberShip_btn" unique_id=219590712]
 layout_mode = 0
 offset_left = 122.0
 offset_top = 5.0
 offset_right = 673.0
 offset_bottom = 126.0
 text = "Bomber ship - Explode your foes away!"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 autowrap_mode = 3
 
-[node name="RocketShip_btn" type="Button" parent="MiddleMargin/StartingDialog_container/ShipOptions_container" unique_id=723399444]
+[node name="RocketShip_btn" type="Button" parent="MiddleBottomMargin/HBoxContainer/ShipOptions_container" unique_id=298197130]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_ykvpg")
-icon = ExtResource("4_iwa1g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4yfqe")
+icon = ExtResource("4_h05m3")
 
-[node name="DescriptionLabel" type="Label" parent="MiddleMargin/StartingDialog_container/ShipOptions_container/RocketShip_btn" unique_id=1315405516]
+[node name="DescriptionLabel" type="Label" parent="MiddleBottomMargin/HBoxContainer/ShipOptions_container/RocketShip_btn" unique_id=96296480]
 layout_mode = 0
 offset_left = 122.0
 offset_top = -1.0
 offset_right = 669.0
 offset_bottom = 127.0
 text = "Rocket Ship - never miss a shot!"
-label_settings = ExtResource("1_lwipk")
+label_settings = ExtResource("2_4yfqe")
 autowrap_mode = 3
+
+[node name="RightSpacer" type="Control" parent="MiddleBottomMargin/HBoxContainer" unique_id=610295611]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="BottomMargin" type="MarginContainer" parent="." unique_id=785752293]
 anchors_preset = 12

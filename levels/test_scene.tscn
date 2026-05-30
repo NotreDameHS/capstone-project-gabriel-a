@@ -13,3 +13,6 @@ position = Vector2(344, 303)
 position = Vector2(1703, 389)
 
 [node name="MobSpawner" parent="." unique_id=448653083 instance=ExtResource("3_0wynk")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1130592673]
+anchor_mode = 0
