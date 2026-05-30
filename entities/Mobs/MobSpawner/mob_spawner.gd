@@ -4,32 +4,47 @@ extends Node2D
 @export var spawnRate: float
 @export var mobsSpawned =  0
 @export var currentWave: int
-@export var padding: float = 50.0
+@export var padding: float = 550.0 #adjusts the location of where mobs of spawned due to camera padding
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var viewport_size = get_viewport_rect().size
-	var spawn_pos = Vector2(viewport_size.x + padding, randf_range(0, viewport_size.y)) 
+	timer.start(1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
-func _wave_Checklist() -> void:
-	if mob_types != null:
-		print("Starting Wave: ",currentWave,"!")
-		
+func _spawn_selected_mob(mobToSpawn: String) -> void:
+	var selected_scene_resource: PackedScene = null
+	if mobToSpawn == "normal":
+		selected_scene_resource = mob_types[0]
+	elif mobToSpawn == "fast":
+		selected_scene_resource = mob_types[1]
+	elif mobToSpawn == "gunner":
+		selected_scene_resource = mob_types[2]
+	elif mobToSpawn == "boss":
+		selected_scene_resource = mob_types[3]
 	else:
-		print("Null value in wave data!")
-		pass
+		print("invalid parameter given")
+		return
+	var mob_instance = selected_scene_resource.instantiate()
+	get_tree().current_scene.add_child(mob_instance)
+	var screen_size = get_viewport().get_visible_rect().size
+	var spawn_x = screen_size.x + padding #make sures to place mobs to the right
+	var spawn_y = randf_range(0.0, screen_size.y) #randomizes the spawn a bit
+	mob_instance.global_position = Vector2(spawn_x, spawn_y)
+
+	
 
 
 func _wave_ended():
 	print("stopped MobSpawner.")
 	queue_free()
 
-# Wave data contains the type of enemy and number.
 
 func _wave_reader(waveData: Array) -> Array:
 	var formatedWaveData = waveData
 	return formatedWaveData
+
+
+func _on_timer_timeout() -> void:
+	_spawn_selected_mob("normal")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="1_jdpn8"]
 [ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="2_5krfb"]
 [ext_resource type="PackedScene" uid="uid://dxqmhubaedyaw" path="res://entities/Mobs/MobSpawner/mob_spawner.tscn" id="3_0wynk"]
+[ext_resource type="PackedScene" uid="uid://0ljekhjl5kus" path="res://ui/player_ui_V2.tscn" id="4_x46hq"]
 
 [node name="TestScene" type="Node2D" unique_id=1701878472]
 
@@ -16,3 +17,6 @@ position = Vector2(1703, 389)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1130592673]
 anchor_mode = 0
+zoom = Vector2(0.7, 0.7)
+
+[node name="Player UI" parent="." unique_id=526041067 instance=ExtResource("4_x46hq")]

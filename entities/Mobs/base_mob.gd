@@ -2,7 +2,7 @@ class_name Mob extends Area2D
 @onready var bulletSpawn = $Marker2D
 @onready var attacktimer = $Timer
 @export var health = 100
-@export var speed = 300
+@export var speed = 150
 @export var damage = 15
 @export var attackrate = 100
 @export var canShoot = true

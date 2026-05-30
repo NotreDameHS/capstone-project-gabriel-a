@@ -13,8 +13,8 @@ extends CanvasLayer
 @onready var bomberShip_btn: Button = $MiddleBottomMargin/HBoxContainer/ShipOptions_container/BomberShip_btn
 @onready var rocketShip_btn: Button = $MiddleBottomMargin/HBoxContainer/ShipOptions_container/RocketShip_btn
 # Buttons & Price Labels
-@onready var health_Pack_btn: Button = $TopMargin/HBoxContainer/HealthPanel/HealthPackPanel/HealthPackBtn
-@onready var health_Pack_price_label: Label = $TopMargin/HBoxContainer/HealthPanel/HealthPackPanel/HealthPackPriceLabel
+@onready var health_Pack_btn: Button = $TopMargin/HBoxContainer/ShopPanel/HealthPackPanel/HealthPackBtn
+@onready var health_Pack_price_label: Label = $TopMargin/HBoxContainer/ShopPanel/HealthPackPanel/HealthPackPriceLabel
 @onready var Damage_upgrade_btn: Button = $TopMargin/HBoxContainer/ShopPanel/DamageUpgrade/DamageUpgradeBtn
 @onready var Damage_upgrade_price_label: Label = $TopMargin/HBoxContainer/ShopPanel/DamageUpgrade/DamageUpgradePrice
 @onready var FiringRate_upgrade_btn: Button = $TopMargin/HBoxContainer/ShopPanel/FiringRateUpgrade/FiringRateUpgradeBtn

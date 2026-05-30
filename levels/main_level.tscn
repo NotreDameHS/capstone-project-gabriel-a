@@ -3,8 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://j6nd831np2ff" path="res://assets/textures/Background/space.png" id="1_ilwad"]
 [ext_resource type="PackedScene" uid="uid://dq7wdpsil2vnh" path="res://entities/player/Base_ship.tscn" id="2_0vhbo"]
 [ext_resource type="PackedScene" uid="uid://0ljekhjl5kus" path="res://ui/player_ui_V2.tscn" id="3_ldao0"]
+[ext_resource type="PackedScene" uid="uid://dxqmhubaedyaw" path="res://entities/Mobs/MobSpawner/mob_spawner.tscn" id="4_55n5f"]
 
 [node name="MainLevel" type="Node2D" unique_id=1851324789]
+
+[node name="MobSpawner" parent="." unique_id=448653083 instance=ExtResource("4_55n5f")]
 
 [node name="baseShip" parent="." unique_id=1365035703 instance=ExtResource("2_0vhbo")]
 z_index = 10
