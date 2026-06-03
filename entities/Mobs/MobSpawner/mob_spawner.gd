@@ -4,7 +4,7 @@ extends Node2D
 @export var spawnRate: float
 @export var mobsSpawned =  0
 @export var currentWave: int
-@export var padding: float = 550.0 #adjusts the location of where mobs of spawned due to camera padding
+@export var padding: float = 50.0 #adjusts the location of where mobs of spawned due to camera padding
 
 func _ready() -> void:
 	timer.start(1)
@@ -28,12 +28,19 @@ func _spawn_selected_mob(mobToSpawn: String) -> void:
 		return
 	var mob_instance = selected_scene_resource.instantiate()
 	get_tree().current_scene.add_child(mob_instance)
-	var screen_size = get_viewport().get_visible_rect().size
-	var spawn_x = screen_size.x + padding #make sures to place mobs to the right
-	var spawn_y = randf_range(0.0, screen_size.y) #randomizes the spawn a bit
+	var viewport = get_viewport()
+	var camera = viewport.get_camera_2d()
+	var visible_size = viewport.get_visible_rect().size / camera.zoom
+	var camera_center = camera.get_screen_center_position()
+	var top_y = camera_center.y - (visible_size.y / 2.0)
+	var bottom_y = camera_center.y + (visible_size.y / 2.0)
+	var right_x = camera_center.x + (visible_size.x / 2.0)
+	var spawn_x = right_x + padding
+	var spawn_y = randf_range(top_y, bottom_y)
 	mob_instance.global_position = Vector2(spawn_x, spawn_y)
 
-	
+
+
 
 
 func _wave_ended():
