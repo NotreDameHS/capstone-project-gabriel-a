@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c61v2tlgvxf6" path="res://entities/Mobs/MobSpawner/mob_spawner.gd" id="1_rw4gy"]
 [ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="2_ohe14"]
+[ext_resource type="PackedScene" uid="uid://ums8lwpmh6kg" path="res://entities/Mobs/fast_mob.tscn" id="3_yv8k8"]
+[ext_resource type="PackedScene" uid="uid://de8r3wn87feay" path="res://entities/Mobs/gunner_mob.tscn" id="4_up22r"]
+[ext_resource type="PackedScene" uid="uid://bc5wx6nijjmc3" path="res://entities/Mobs/boss_mob.tscn" id="5_flgv3"]
 
 [node name="MobSpawner" type="Node2D" unique_id=448653083]
 script = ExtResource("1_rw4gy")
-mob_types = Array[PackedScene]([ExtResource("2_ohe14"), null, null, null])
+mob_types = Array[PackedScene]([ExtResource("2_ohe14"), ExtResource("3_yv8k8"), ExtResource("4_up22r"), ExtResource("5_flgv3")])
+spawnRate = null
+mobsSpawned = null
+padding = null
 
 [node name="Timer" type="Timer" parent="." unique_id=1594650527]
 

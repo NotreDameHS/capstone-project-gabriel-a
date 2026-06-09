@@ -3,11 +3,10 @@ extends Node2D
 @export var mob_types: Array[PackedScene] 
 @export var spawnRate: float
 @export var mobsSpawned =  0
-@export var currentWave: int
 @export var padding: float = 50.0 #adjusts the location of where mobs of spawned due to camera padding
-
+signal wave_completed
 func _ready() -> void:
-	timer.start(1)
+	timer.start(1) #Temporary code to debug with!
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -41,16 +40,22 @@ func _spawn_selected_mob(mobToSpawn: String) -> void:
 
 
 
-
-
-func _wave_ended():
-	queue_free()
-
-
 func _wave_reader(waveData: Array) -> Array:
-	var formatedWaveData = waveData
-	return formatedWaveData
+	var formatedData: Array
+	var counter = 0
+	var wavesize = waveData.size() - 1
+	while counter < wavesize:
+		var item = waveData[counter]
+		if item == String:
+			formatedData.append(item)
+		else:
+			formatedData[counter-1[0]] = item
+			
+	
+	
 
+func deployWave(waveData: Array) -> void:
+	pass
 
 func _on_timer_timeout() -> void:
 	_spawn_selected_mob("normal")

@@ -1,19 +1,26 @@
 extends Node
-const mob_spawner = preload("res://entities/Mobs/MobSpawner/mob_spawner.tscn")
 var waveData: Array = []
 var maxWaves: int # This will be extracted from the WaveData.txt File!
-var currentWave = 5
+var currentWave = 0
+var mobSpawner: Node #Makes mobSPawner a public variable
+const mobSpawnerScene = preload("res://entities/Mobs/MobSpawner/mob_spawner.tscn")
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
 	print("Game manager Started!")
+	mobSpawner = mobSpawnerScene.instantiate()
+	get_tree().current_scene.add_child(mobSpawner)
 	load_wave_file("res://WaveData.txt")
-	wave_manager(currentWave) #this is here temporary to test wave manager
+	await get_tree().create_timer(5).timeout #Waits 5 seconds before starting any wave
+											#This will be replaced for when the player chooses a ship
+	print("WaveManager Started!")
+	wave_manager() 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
 
 func load_wave_file(path: String) -> void: #
 	if not FileAccess.file_exists(path):
@@ -46,8 +53,8 @@ func get_wave_instructions(wave_index: int) -> Dictionary:
 		return waveData[wave_index]
 	return {} # Return empty dictionary if wave doesn't exist
 
-func wave_manager(requestedWavenumber: int) -> void:
-	var requestedWave = get_wave_instructions(requestedWavenumber)
-	print(requestedWave)
-	
-	
+func wave_manager() -> void:
+	while currentWave < maxWaves:
+		var waveinstructions = get_wave_instructions(currentWave)
+		mobSpawner.deployWave(waveinstructions)
+		await 
