@@ -1,5 +1,5 @@
 extends Area2D
-@export var max_distance := 900.0 #This will be changed after the level scene is made
+@export var max_distance := 2800.0
 @export var speed := 1000.0
 var velocity: Vector2 = Vector2(0, 0)
 var _distance_traveled := 0.0

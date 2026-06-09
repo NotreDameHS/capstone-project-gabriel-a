@@ -44,7 +44,6 @@ func _spawn_selected_mob(mobToSpawn: String) -> void:
 
 
 func _wave_ended():
-	print("stopped MobSpawner.")
 	queue_free()
 
 

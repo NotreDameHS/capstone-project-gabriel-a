@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://de8r3wn87feay"]
+
+[ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="1_1lut7"]
+[ext_resource type="Script" uid="uid://dkf3fmpsxo463" path="res://entities/Mobs/gunner_mob.gd" id="2_ap5qs"]
+
+[node name="gunner_Mob" unique_id=276619329 instance=ExtResource("1_1lut7")]
+script = ExtResource("2_ap5qs")

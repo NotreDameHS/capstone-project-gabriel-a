@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bc5wx6nijjmc3"]
+
+[ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="1_p2i57"]
+[ext_resource type="Script" uid="uid://cublmbdtxeo47" path="res://entities/Mobs/boss_mob.gd" id="2_d015i"]
+
+[node name="boss_Mob" unique_id=276619329 instance=ExtResource("1_p2i57")]
+script = ExtResource("2_d015i")

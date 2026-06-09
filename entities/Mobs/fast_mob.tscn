@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ums8lwpmh6kg"]
+
+[ext_resource type="PackedScene" uid="uid://ck6dry15ad7gx" path="res://entities/Mobs/base_mob.tscn" id="1_agjqs"]
+[ext_resource type="Script" uid="uid://6npd1whrjm6b" path="res://entities/Mobs/fast_mob.gd" id="2_5e628"]
+
+[node name="FastMob" unique_id=276619329 instance=ExtResource("1_agjqs")]
+script = ExtResource("2_5e628")
+health = 70
+speed = 300
+impactDamage = 45
+canShoot = false

@@ -5,12 +5,16 @@ class_name Mob extends Area2D
 @export var speed = 150
 @export var damage = 15
 @export var attackrate = 100
+@export var impactDamage = 30
 @export var canShoot = true
 @export var bulletScene: PackedScene
 var velocity: Vector2 = Vector2(0, 0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	attacktimer.start(attackrate/100.0)
+	if canShoot == true:
+		attacktimer.start(attackrate/100.0)
+	else:
+		pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

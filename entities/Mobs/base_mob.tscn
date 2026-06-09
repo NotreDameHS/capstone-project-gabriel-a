@@ -7,7 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2e703"]
 
 [node name="BaseMob" type="Area2D" unique_id=276619329 groups=["Mob"]]
-monitoring = false
 script = ExtResource("1_yijqc")
 bulletScene = ExtResource("2_eu2pi")
 
